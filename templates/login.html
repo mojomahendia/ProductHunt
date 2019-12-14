@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+
+{{error}}
+<br/>
+<br/>
+{% endif %}
+
+<h1>Login</h1>
+<form action="{% url 'login'%}" method="POST">
+  {% csrf_token %} <!--It’s just a requirement so we need to follow it. Its for security-->
+  Username:
+  <br/>
+  <input type="text" name="username"/>
+  <br/>
+  Password:
+  <br/>
+  <input type="password" name="password"/>
+  <br/>
+  <br/>
+  <input class="btn btn-primary" type="submit" value="Login"/>
+  <!--class="btn btn=primary" this is from bootstrap to make the button look nicer-->
+  <br/>
+
+</form>
+
+{% endblock%}
