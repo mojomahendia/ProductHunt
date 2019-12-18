@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{% if error %}
+
+{{error}}
+<br/>
+<br/>
+{% endif %}
+
+<h1>Create</h1>
+<form action="{% url 'create'%}" method="POST" enctype="multipart/form-data">
+  <!-- enctype="multipart/form-data this code is used because images are uploaded in this form-->
+  {% csrf_token %} <!--It’s just a requirement so we need to follow it. Its for security-->
+  Title:
+  <br/>
+  <input type="text" name="title"/>
+  <br/>
+  Body:
+  <br/>
+  <input type="textbox"  name="body"/>
+  <!--type="textbox" has more area capacity than "text" -->
+  <br/>
+  URL:
+  <br/>
+  <input type="text" name="url"/>
+  <br/>
+  Icon:
+  <br/>
+  <input type="file" name="icon"/>
+  <br/>
+  Image:
+  <br/>
+  <input type="file" name="image"/>
+  <br/>
+  <br/>
+  <input class="btn btn-primary" type="submit" value="Add Product"/>
+  <!--class="btn btn=primary" this is from bootstrap to make the button look nicer-->
+  <br/>
+
+</form>
+
+{% endblock %}
